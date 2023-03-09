@@ -1,9 +1,11 @@
 package org.iclass.dao;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Disabled;
+import java.util.List;
+
+import org.iclass.vo.Community;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -37,9 +39,13 @@ class CommunityMapperTest {
 	
 	@DisplayName("list 로 가져온 개수와 count 함수 결과는 같아야 합니다.")
 	@Test
-	@Disabled			//test 비활성화
 	void list() {
+		List<Community> list = dao.list();
+		int size = list.size();
+		int count = dao.count();
+		log.info("select 전체 크기 : {} , select count : {}",size, count);
 		
+		assertEquals(count, size);
 	}
 
 }
