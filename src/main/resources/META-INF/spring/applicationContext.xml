@@ -58,7 +58,6 @@
 		<constructor-arg ref="sqlSessionFactoryBean"/>
 	</bean>
 	<!-- 8. mybatis-spring는 community.xml(매퍼파일)과 연결되는 인터페이스를 사용합니다.
-			그 매퍼 인터페이스의 패키지를 알려줘야 합니다. -->	
-<!--	<mybatis-spring:scan base-package="org.iclass.dao"/>-->
-	
+			그 매퍼 인터페이스의 패키지를 알려줘야 합니다. 인터페이스 구현체는 프록시 클래스가 만듭니다.-->	
+	<mybatis-spring:scan base-package="org.iclass.dao"/>
 </beans>
